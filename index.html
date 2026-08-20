@@ -260,7 +260,7 @@ section.block{padding:44px 0}
 .why-right{position:relative;display:flex;align-items:center;justify-content:center;padding:34px}
 .why-quote{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:30px 28px;color:#fff;text-align:center}
 .why-quote p{font-family:'Sora',sans-serif;font-size:1.2rem;line-height:1.4;margin:0;font-weight:600}
-.why-quote span{display:block;margin-bottom:14px;font-size:1.6rem}
+.why-quote span{display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.5rem;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#d99b2b);box-shadow:0 10px 24px rgba(231,172,60,.35)}
 
 /* ---------- Steps: clickable stepper ---------- */
 .stepper-nav{display:flex;gap:10px;margin-bottom:30px;flex-wrap:wrap}
@@ -447,11 +447,19 @@ footer{padding:16px 0 20px}
 
 /* ---------- Aide secondaire (bénévolat) ---------- */
 .help-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
-.help-card{background:var(--surface-solid);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow-sm)}
+.help-grid-main{grid-template-columns:1fr 1fr}
+.help-grid-other{grid-template-columns:repeat(3,1fr);margin-top:16px}
+.help-card{background:var(--surface-solid);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
 .help-card .h-icon{width:40px;height:40px;border-radius:12px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1.05rem;margin-bottom:10px}
 .help-card h4{margin:0 0 6px;font-size:.95rem;font-family:'Sora',sans-serif;color:var(--navy)}
 .help-card p{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;font-weight:600}
-.help-card a.help-link{display:inline-flex;margin-top:10px;font-size:.78rem;font-weight:800;color:var(--coral-2)}
+.help-card .help-links{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:12px}
+.help-card a.help-link{display:inline-flex;font-size:.78rem;font-weight:800;color:var(--coral-2)}
+.help-card a.help-link.btn-donate{
+  justify-content:center;background:linear-gradient(135deg,var(--coral),var(--coral-2));color:#fff;
+  padding:10px 14px;border-radius:12px;box-shadow:0 10px 24px rgba(227,88,112,.28);
+}
+.help-card a.help-link.btn-donate:hover{filter:brightness(1.06)}
 
 /* ---------- Qui sommes-nous : timeline, équipe, citations ---------- */
 .story-lead{background:var(--surface);border:1px solid rgba(255,255,255,.7);border-radius:28px;padding:34px;box-shadow:var(--shadow-sm);margin-bottom:8px}
@@ -849,24 +857,20 @@ footer{padding:16px 0 20px}
     <div class="block">
       <div class="section-head">
         <div>
-          <div class="eyebrow">💛 Devenez bénévole</div>
-          <h2>Des missions variées, chacun peut aider</h2>
-          <p>Peu importe votre expérience, l'important c'est votre motivation et votre cœur. Cliquez sur une mission pour en savoir plus.</p>
+          <div class="eyebrow">🤍 Nous aider</div>
+          <h2>Notre association a besoin de vous !</h2>
         </div>
       </div>
-
-      <div class="mission-shell">
-        <div class="mission-list" id="missionList"></div>
-        <div class="mission-detail" id="missionDetail"></div>
-      </div>
+      <div class="help-grid help-grid-main" id="helpGridMain"></div>
+      <div class="help-grid help-grid-other" id="helpGridOther"></div>
 
       <div class="section-head" style="margin-top:44px">
         <div>
-          <div class="eyebrow">🤍 Nous aider autrement</div>
-          <h2 style="font-size:1.6rem">D'autres façons de soutenir l'association</h2>
+          <div class="eyebrow">💛 Devenez bénévole</div>
+          <h2>Des missions variées, chacun peut aider</h2>
+          <p></p>
         </div>
       </div>
-      <div class="help-grid" id="helpGrid"></div>
 
       <div class="why-band">
         <div class="why-left">
@@ -880,6 +884,11 @@ footer{padding:16px 0 20px}
             <p>Peu importe votre expérience, l'important c'est votre motivation et votre cœur !</p>
           </div>
         </div>
+      </div>
+
+      <div class="mission-shell" style="margin-top:32px">
+        <div class="mission-list" id="missionList"></div>
+        <div class="mission-detail" id="missionDetail"></div>
       </div>
     </div>
   </section>
@@ -982,6 +991,11 @@ footer{padding:16px 0 20px}
         </a>
       </div>
     </div>
+    <div class="footer-links" style="border-top:1px solid rgba(255,255,255,.12);padding:14px 26px">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="politique-cookies.html">Politique de cookies</a>
+    </div>
     <div class="footer-bottom">
       <span>© 2026 La Patte Sur Le Coeur — Le Barp · Association loi 1901 reconnue d'intérêt général (N° RNA W336008278 - Préfecture de la Gironde)</span>
       <span>Site bénévole, sans publicité</span>
@@ -1002,7 +1016,10 @@ footer{padding:16px 0 20px}
    Les compteurs ci-dessous sont réglables plus bas dans les appels à
    animateCounter(...) — à mettre à jour avec les chiffres réels de
    l'association :
-   - counter-adoptes        : "Adoptions réussies" (target: 74)
+   - counter-animaux        : "Chats à adopter" — calculé automatiquement
+                               (nombre de chats avec soon=false)
+   - counter-adoptes        : "Chats bientôt à l'adoption" — calculé automatiquement
+                               (nombre de chats avec soon=true)
    - counter-benevole       : "Bénévole"  (target: 100, suffixe %)
    - counter-sterilises     : "Chats libres stérilisés" (target: 60)
    - counter-adoptes-total  : "Chats adoptés" (target: 74)
@@ -1103,8 +1120,20 @@ const hours = [
   {label:'Dimanche', value:'Fermé'}
 ];
 
-const helpWays = [
-  {icon:'💝', title:'Don & adhésion', text:"Chaque don, même modeste, aide à financer les soins vétérinaires.", mailSubject:'Faire un don'},
+const helpWaysMain = [
+  {icon:'💝', title:'Faire un don', text:"Chaque don, même modeste, aide à financer les soins vétérinaires des chats que nous recueillons.",
+   links:[
+     {label:'✉️ Nous écrire', href:'mailto:lapattesurlecoeurlebarp@gmail.com?subject=' + encodeURIComponent('Faire un don')},
+     {label:'💳 Faire un don sur HelloAsso', href:'https://www.helloasso.com/associations/la-patte-sur-le-coeur-le-barp', external:true, cta:true}
+   ]},
+  {icon:'🤝', title:'Adhérer', text:"Devenez membre de l'association et soutenez nos actions tout au long de l'année.",
+   links:[
+     {label:'✉️ Nous écrire', href:'mailto:lapattesurlecoeurlebarp@gmail.com?subject=' + encodeURIComponent('Adhérer')},
+     {label:'💳 Adhérer sur HelloAsso', href:'https://www.helloasso.com/associations/la-patte-sur-le-coeur-le-barp', external:true, cta:true}
+   ]}
+];
+
+const helpWaysOther = [
   {icon:'🎗️', title:'Parrainage', text:"Parrainez un chat de l'association pour soutenir ses frais mensuels.", mailSubject:'Parrainage d\'un chat'},
   {icon:'🏡', title:"Jardin d'accueil", text:"Vous avez un extérieur sécurisé ? Proposez-le pour un chat semi-libre.", mailSubject:'Offrir un jardin d\'accueil'},
   {icon:'📦', title:'Besoins divers', text:"Croquettes, litière, caisses de transport… chaque don matériel compte.", mailSubject:'Dons matériels'}
@@ -1522,15 +1551,21 @@ function renderHours(){
 }
 
 function renderHelp(){
-  const grid = document.getElementById('helpGrid');
-  if(!grid) return;
-  grid.innerHTML = helpWays.map(h => `
-    <article class="help-card">
+  const gridMain = document.getElementById('helpGridMain');
+  const gridOther = document.getElementById('helpGridOther');
+  const cardHtml = h => {
+    const linksHtml = h.links
+      ? h.links.map(l => `<a class="help-link${l.cta ? ' btn-donate' : ''}" href="${l.href}"${l.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${l.label}</a>`).join('')
+      : `<a class="help-link" href="mailto:lapattesurlecoeurlebarp@gmail.com?subject=${encodeURIComponent(h.mailSubject)}">En savoir plus →</a>`;
+    return `<article class="help-card">
       <div class="h-icon">${h.icon}</div>
       <h4>${h.title}</h4>
       <p>${h.text}</p>
-      <a class="help-link" href="mailto:lapattesurlecoeurlebarp@gmail.com?subject=${encodeURIComponent(h.mailSubject)}">En savoir plus →</a>
-    </article>`).join('');
+      <div class="help-links">${linksHtml}</div>
+    </article>`;
+  };
+  if(gridMain) gridMain.innerHTML = helpWaysMain.map(cardHtml).join('');
+  if(gridOther) gridOther.innerHTML = helpWaysOther.map(cardHtml).join('');
 }
 
 function subscribeNewsletter(){
@@ -1572,10 +1607,10 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHours();
   renderHelp();
   setTimeout(() => {
-    animateCounter('counter-animaux', cats.length);
-    animateCounter('counter-adoptes', 0);
+    animateCounter('counter-animaux', cats.filter(c => !c.soon).length);
+    animateCounter('counter-adoptes', cats.filter(c => c.soon).length);
     animateCounter('counter-benevole', 100, '%');
-    animateCounter('counter-sterilises', 0);
+    animateCounter('counter-sterilises', 4);
     animateCounter('counter-adoptes-total', 6);
     animateCounter('counter-famille', 12);
   }, 600);
