@@ -212,12 +212,14 @@ section.block{padding:44px 0}
   box-shadow:var(--shadow-sm);transition:transform .25s ease, box-shadow .25s ease;
 }
 .cat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
-.cat-card img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease}
+.cat-card img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .5s ease}
 .cat-card:hover img{transform:scale(1.06)}
 .cat-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,34,56,0) 40%,rgba(15,24,38,.88) 100%)}
-.cat-top-badges{position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between}
-.cat-badge{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.92);font-size:.72rem;font-weight:800;color:var(--navy)}
+.cat-top-badges{position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:flex-start}
+.badge-group{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.cat-badge{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.92);font-size:.72rem;font-weight:800;color:var(--navy);white-space:nowrap}
 .cat-badge.urgent{background:var(--coral);color:#fff}
+.cat-badge.soon{background:var(--gold);color:var(--navy)}
 .cat-info{position:absolute;left:18px;right:18px;bottom:16px;color:#fff}
 .cat-info .name{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:700}
 .cat-info .meta{font-size:.8rem;opacity:.86;font-weight:700;margin-top:2px}
@@ -286,10 +288,11 @@ section.block{padding:44px 0}
 .step-detail p{color:rgba(255,255,255,.76);margin:0;line-height:1.75;font-weight:600;max-width:560px}
 
 /* ---------- Contact panel ---------- */
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
 .contact-card{
-  background:linear-gradient(135deg,var(--coral),var(--coral-2));border-radius:32px;padding:44px;color:#fff;
+  background:linear-gradient(135deg,var(--coral),var(--coral-2));border-radius:32px;padding:36px 40px;color:#fff;
   box-shadow:var(--shadow-glow);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
 }
 .contact-card:before{content:"🐾";position:absolute;font-size:9rem;opacity:.10;right:-10px;bottom:-30px;transform:rotate(-12deg)}
 .contact-card h2{color:#fff;margin:0 0 12px;font-size:clamp(1.6rem,2.8vw,2.1rem)}
@@ -298,7 +301,9 @@ section.block{padding:44px 0}
 .contact-actions .btn-ghost{background:#fff;color:var(--coral-2);border:none}
 .contact-actions .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
 .contact-side{display:flex;flex-direction:column;gap:16px}
-.info-card{background:var(--surface);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:22px;box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:flex-start}
+.contact-side .info-card,.contact-side .side-card{flex:1;display:flex;flex-direction:column;justify-content:center}
+.contact-side .info-card{justify-content:flex-start!important}
+.info-card{background:var(--surface);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:22px;box-shadow:var(--shadow-sm);display:flex!important;flex-direction:row!important;gap:14px;align-items:center!important}
 .info-card .ic{width:44px;height:44px;border-radius:14px;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex:0 0 auto}
 .info-card b{display:block;font-family:'Sora',sans-serif;font-size:.92rem;color:var(--navy)}
 .info-card span{font-size:.84rem;color:var(--muted);font-weight:700}
@@ -324,7 +329,7 @@ footer{padding:16px 0 20px}
 .close{position:sticky;top:0;margin-left:auto;width:42px;height:42px;border-radius:50%;border:none;background:rgba(19,34,56,.07);font-size:1rem;cursor:pointer;display:block}
 .modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
 .modal-media{border-radius:24px;overflow:hidden;height:360px;background:#e7ddc9;align-self:start;position:relative}
-.modal-media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.modal-media img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .modal-body h2{margin:0;font-size:2rem}
 .modal-contact{padding:18px 20px;border-radius:22px;background:var(--bg-2);margin-top:20px}
 .modal-contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
@@ -335,7 +340,7 @@ footer{padding:16px 0 20px}
 .carousel{position:relative;height:100%}
 .carousel-track{display:flex;height:100%;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
 .carousel-slide{flex:0 0 100%;height:100%;position:relative}
-.carousel-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
 .carousel-slide.single{height:100%}
 .carousel-arrow{
   position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;
@@ -471,13 +476,18 @@ footer{padding:16px 0 20px}
 .team-card p{margin:0;font-size:.8rem;color:var(--muted);line-height:1.55;font-weight:600}
 
 .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
-.quote-card{background:var(--surface-solid);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow-sm);position:relative}
+.quote-card{background:var(--surface-solid);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow-sm);position:relative;cursor:pointer;transition:transform .22s ease,box-shadow .22s ease}
+.quote-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
 .quote-card .q-mark{font-family:'Sora',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1;margin-bottom:6px;display:block}
 .quote-card p{margin:0 0 14px;color:var(--ink);font-weight:600;line-height:1.7;font-style:italic}
-.quote-card .q-author{display:flex;align-items:center;gap:10px}
-.quote-card .q-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.quote-card .q-author{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.quote-card .q-author-info{display:flex;align-items:center;gap:10px}
+.quote-card .q-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-size:1rem;flex:0 0 auto}
 .quote-card .q-name{font-size:.84rem;font-weight:800;color:var(--navy);font-family:'Sora',sans-serif}
 .quote-card .q-role{font-size:.74rem;color:var(--muted);font-weight:700}
+.quote-card .q-read{font-size:.78rem;font-weight:800;color:var(--coral-2);white-space:nowrap;flex:0 0 auto}
+.quote-card:hover .q-read{text-decoration:underline}
+.quote-modal-mark{font-family:'Sora',sans-serif;font-size:3.5rem;color:var(--gold);line-height:1;margin-bottom:4px;display:block}
 
 .value-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
 .value-item{text-align:center;padding:18px 10px}
@@ -514,7 +524,9 @@ footer{padding:16px 0 20px}
 .hours-table td:last-child{color:var(--muted);text-align:right}
 .hours-table tr:last-child td{border-bottom:none}
 .social-row{display:flex;gap:10px;margin-top:14px}
-.social-btn{width:44px;height:44px;border-radius:14px;background:rgba(19,34,56,.06);display:flex;align-items:center;justify-content:center;font-size:1.15rem;color:var(--navy)}
+.social-btn{width:44px;height:44px;border-radius:14px;background:rgba(19,34,56,.06);display:flex;align-items:center;justify-content:center;color:var(--navy);transition:background .2s ease,color .2s ease}
+.social-btn.fb:hover{background:#1877f2;color:#fff}
+.social-btn.ig:hover{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);color:#fff}
 .social-btn:hover{background:var(--coral);color:#fff}
 .newsletter-row{display:flex;gap:8px;margin-top:14px}
 .newsletter-row input{flex:1;height:46px;border-radius:14px;border:1px solid var(--line);padding:0 16px;font:inherit;font-size:.86rem;font-weight:700}
@@ -552,10 +564,16 @@ footer{padding:16px 0 20px}
   .brand-copy{display:none}
   .hero{padding:30px 0 20px}
   .hero-actions .btn{width:100%;justify-content:center}
-  .hero-stats{gap:20px}
+  .hero-stats{gap:18px 16px;grid-template-columns:repeat(2,1fr);max-width:none}
   .quick-grid{grid-template-columns:1fr}
   .cats-grid{grid-template-columns:1fr}
-  .filters-bar{flex-direction:column;align-items:stretch}
+  .cat-card{height:300px}
+  .cat-badge{font-size:.68rem;padding:6px 10px}
+  .filters-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
+  .filters-bar .search-wrap{grid-column:1 / -1}
+  .filters-bar .urgent-chip{grid-column:1 / -1}
+  .filters-bar .search-wrap input,.filters-bar .filter-select,.filters-bar .urgent-chip{height:46px;font-size:16px}
+  .filters-panel{padding:14px}
   .chip-tabs{justify-content:center}
   .mission-list{flex-direction:row;overflow-x:auto}
   .mission-tab{flex:0 0 auto;min-width:220px}
@@ -571,6 +589,8 @@ footer{padding:16px 0 20px}
   .help-grid{grid-template-columns:1fr}
   .footer-inner{padding:16px 20px;flex-direction:column;align-items:flex-start}
   .alert-card{width:250px}
+  section.block{padding:30px 0}
+  .quick-grid{margin-top:34px}
 }
 </style>
 </head>
@@ -607,14 +627,14 @@ footer{padding:16px 0 20px}
       <div class="hero-shell">
         <div>
           <div class="hero-eyebrow">🐾 Association loi 1901</div>
-          <h1 class="hero-title">Ensemble, sauvons<br>plus de <span class="accent">chats</span></h1>
+          <h1 class="hero-title">Ensemble, sauvons<br>plus de <span class="accent">vies</span></h1>
           <p class="hero-sub">Nous secourons, soignons, protégeons et faisons adopter des chats abandonnés ou en détresse. Mais sans bénévoles, rien n'est possible — rejoignez-nous !</p>
           <div class="hero-actions">
             <button class="btn btn-primary" data-tab-link="chats">🐱 Voir les chats à adopter</button>
           </div>
           <div class="hero-stats">
-            <div class="hero-stat"><b id="counter-animaux">0</b><span>Animaux à adopter</span></div>
-            <div class="hero-stat"><b id="counter-adoptes">0</b><span>Adoptions réussies</span></div>
+            <div class="hero-stat"><b id="counter-animaux">0</b><span>Chats à adopter</span></div>
+            <div class="hero-stat"><b id="counter-adoptes">0</b><span>Chats bientôt à l'adoption</span></div>
             <div class="hero-stat"><b id="counter-benevole">0</b><span>Bénévole</span></div>
             <div class="hero-stat"><b id="counter-sterilises">0</b><span>Chats libres stérilisés</span></div>
             <div class="hero-stat"><b id="counter-adoptes-total">0</b><span>Chats adoptés</span></div>
@@ -708,27 +728,21 @@ footer{padding:16px 0 20px}
       <div class="team-grid">
         <div class="team-card">
           <div class="team-avatar">🐾</div>
-          <h4>Sandrine</h4>
+          <h4>Jennifer</h4>
           <span class="role">Présidente & fondatrice</span>
           <p>À l'origine de l'association. Coordonne les sauvetages et les relations avec les vétérinaires partenaires.</p>
         </div>
         <div class="team-card">
           <div class="team-avatar">📋</div>
-          <h4>Karine</h4>
+          <h4>Cathy</h4>
           <span class="role">Trésorière</span>
           <p>Gère les comptes, les dons et les demandes de subventions depuis la création de l'association.</p>
         </div>
         <div class="team-card">
           <div class="team-avatar">📣</div>
-          <h4>Julien</h4>
-          <span class="role">Communication</span>
-          <p>Anime les réseaux sociaux, le site et les campagnes d'appel aux dons et à l'adoption.</p>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">🚗</div>
-          <h4>Morgane</h4>
-          <span class="role">Coordination terrain</span>
-          <p>Organise les transports, les captures et les rendez-vous vétérinaires au quotidien.</p>
+          <h4>Neela</h4>
+          <span class="role">Secrétaire</span>
+          <p></p>
         </div>
       </div>
     </div>
@@ -741,30 +755,7 @@ footer{padding:16px 0 20px}
           <p>Avant chaque adoption, la plupart de nos chats passent par une famille d'accueil : un foyer temporaire, le temps de se soigner, se sociabiliser et reprendre confiance.</p>
         </div>
       </div>
-      <div class="quote-grid">
-        <div class="quote-card">
-          <span class="q-mark">"</span>
-          <p>On a accueilli notre premier chat "temporairement" il y a trois ans... et on ne s'est jamais arrêtés depuis. Voir un chat apeuré reprendre confiance et repartir vers une famille aimante, c'est indescriptible.</p>
-          <div class="q-author">
-            <div class="q-avatar">🐈</div>
-            <div>
-              <div class="q-name">Nathalie</div>
-              <div class="q-role">Famille d'accueil depuis 2022</div>
-            </div>
-          </div>
-        </div>
-        <div class="quote-card">
-          <span class="q-mark">"</span>
-          <p>Je n'avais jamais eu de chat avant. L'association m'a tout expliqué, accompagné pour les premiers soins, et n'a jamais été loin en cas de question. On se sent vraiment épaulés.</p>
-          <div class="q-author">
-            <div class="q-avatar">🐈</div>
-            <div>
-              <div class="q-name">Thomas</div>
-              <div class="q-role">Famille d'accueil depuis 2024</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="quote-grid" id="quoteGrid"></div>
     </div>
 
     <div class="block" style="padding-top:0">
@@ -912,15 +903,16 @@ footer{padding:16px 0 20px}
           <ul class="cond-list">
             <li><b>✓</b>Être majeur et présenter une pièce d'identité le jour de l'adoption.</li>
             <li><b>✓</b>Disposer d'un logement adapté (accord du propriétaire si location).</li>
-            <li><b>✓</b>Le chat est vacciné, vermifugé, stérilisé et identifié avant son départ.</li>
+            <li><b>✓</b>Le chat est vacciné, vermifugé, stérilisé (à partir de 4,5 mois) et identifié avant son départ.</li>
             <li><b>✓</b>Une participation aux frais est demandée pour couvrir les soins vétérinaires engagés.</li>
-            <li><b>✓</b>Signature du contrat d'adoption et de la charte d'engagement le jour de la remise.</li>
+            <li><b>✓</b>Signature de la charte d'engagement 1 semaine avant le jour de l'adoption.</li>
+            <li><b>✓</b>Signature du contrat d'adoption le jour de l'adoption.</li>
           </ul>
         </div>
         <div class="pdf-card">
           <h3>📄 Charte d'engagement à l'adoption</h3>
           <p>Anticipez votre visite : téléchargez et lisez notre charte avant de finaliser une adoption. Nous vous conseillons de prendre le temps de la réflexion avant de vous engager.</p>
-          <a class="btn" href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL1phcGZEaW5nYmF0cyAvTmFtZSAvRjIgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago0IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQ29udGVudHMgOSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCA4IDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgOCAwIFIgL1R5cGUgL0NhdGFsb2cKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0F1dGhvciAoXChhbm9ueW1vdXNcKSkgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MDcxNDA1MTk1OCswMCcwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MDcxNDA1MTk1OCswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoXChhbm9ueW1vdXNcKSkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNSAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjkgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjA0NQo+PgpzdHJlYW0KR2F1SEw5bG8mSSdZTzxFXU5ebmRfW3VgWEg+L1BeU1RbLDU1KChpYFZCP2B0Jm5EOEdYb0VoREpKOk9HRU5IT01tMjpgcDVbYEpZaHI5Mz1JL0ZCSD1dQGZYWTM+UGgrOyl1Tk1GP01vRkVLa2tZImxeJkxwOlMqSFFsN2tSKm1EVmlaTHRiKjFEPC1nb2FHXSxQWi8waTopJDclXEY6R04qI3BiamI9JW1oJTZkOUs3IT9qanM9PGgqZCMkak0ncjFSczRyP1kkK1BGUGlAcUl1QjBkQWlqR0NmTlpcWjc6I25ZOFxQJGwnOztXJ2tKTDNZRXRJP1wkOGtZJ2ddS3FlPUxfU21dKTtTSUsqZ1ZzOGAiOFQ7Ly1qZE8zJXJzc00oc1d1ajE4InBXSCF1czchSTdOWiNDMUNrOTVKI0MwcipkMls8ODBTVmVcWG03ODchMVdjMzBeVVpEbG9YSUYnMkU/ZFBsITpnXGthPzIyLicyWlBRa2spb1BRaHNtN15lQCEzXjRIQ0prTUskbilrcyZUYWg5N0sxWWU1ZWplOzQuZ24wUlVtJVZFc29WJTEsRjQlYjtPWSlrJVRiYVpxb0xdcF9VSzF0WWY7X2BHVUk/IiNjLEBOW2k/ciV0TEY1RmYiJERcbTsrZEZQN2ZubkNfW0dNLEdYcV9RIiRUL3NdJygvdDxTXl1dZTVjVXEkdCopRVpHYT1nOTkhYnM6YUs7MGZyM0ttMD0qTjpoJjRuW21IUGAvNl1aKFhWcyVoT2pyZGVAXiFeSms0aEBfQTksbWxXQXR1dWxmVD9mXmQmZUxYWy1AM3AhJGFFYjBzbjc3YGFOX2AyczwqKGtMJmBFaVAmO2w7cCVGJDFIM2JRTGRjMGw8bzI7cmVTREpzVGJmUUNmI1NbOj86bDhpUjk5L1hRLzMrciwvZlxFayhCQGFqUERqISxsPUdCOj5cKl9GMztobTxgKF8sZmcrRGBhNzcvYDRNczVfLHBNTSZlTDZRTkEwLiRUU00hPSFcaUVSTmhVZUMjPE5Ga0dqTVU3LVVmRGh1VjZjYCovZiIjcSRXLUpXUXMwbC1NZDRFJUYjV01hWCI3Tyw+QUlgcFc4VWBjSUNZJjhwLlVCQDlULDFDZEBmRDNoU1taNmJFJTAhS1ZdKyxJJkRwI01qSHBiQm1fU19yXCcvUy0tUClUQk5tVzVcZkFwKmllMjRtOEZvLlw5NmVSTERCMSROMikpRCNdJWErRT5TV25Eai9oJipISEFhY2RNUj1OZ0BWX3FpI3RdUEVhJ0xdWzBKRlYsXSFZPjBRU1k8IlRQYls+cD9qL05oT2YxVDdLPnEwbiZBaCE3bW8oUlBrZ0AvVVctVihyNWtsMVtwLFcwSGQ4PmZNZVZKckVBLnVmcXEnMVsoPjlmWENINHIpKDtiPDNDSCJia0E2bmlmIikwXFhbOVZbS1opc2IxOT5oU1xmSi4mUiM3KCEpNDghZ2FpUi9sYk42LGdiOFJBLDo1TzZjN1FdS3I0MCo+IjJmZF9xU29YQkVOWF4/RDFraFpyQkNSVkkkTXRiKkA2VnNgSEohIkVkQV05N05ZWGhKbExcPXBsTyFYK0w5NTVMcWRUbT5gQTgpIWQwWEdhQ1QiPEZxaGZPLiNPSC4xazcpJlImbmM8I1pNNGt0OjtgTzRsWVwxMHBtJDhJLEhsNzFDXnVKW0RQbGhcV2dqQDRBdVQhQCZQZlBUI1JMJWJFOkF0aUFiPnNnQGQvLlEzSC1lKiRHKCE7ZW5uV0w7biZARDdFZWsrU0BOZllvZWdRJ24xS1spUUwuU1gjO2xSQTg0IWMnUUJtQUIrWlpTUVVtMFgpRC1jaTskbDNMTzZDVC5Vbklday1ZXSM8ZUYtdW1bXjhwIm4+Yk5sLmZIPC86JUo4TmVxajArQnJWXy8nJjZpT0JDWzQjOV9uMkItQ3RwQzFvcj9BIywrNTUqIytOTGJmYj9vbTk9KC1rcGlhOTpnNWRtSiI5NGlaa0g8bFU/WSokbFdtO1txUFpdMk0hLkUnSjIvUElWO1o0OzglbENjc0w4J0dUSTltLEBaPFRCNjEyRW4laUY6KmxDOXRvIkQ1RzZ1QFlAWnNvNiF1VSE5LGI1cD4iJDlbNWkhRiRhTGFHaT0qKGBBYTRWRlAhRSJLPShyOjs1Qz5SLl5ANkxeVmElVHFoXytpUVxTLTVgPFhiX0BiRy1KOGRZVnJackQlSy1DJHRlcVIrJEtXLTdmW004MTooO3IpXSxMRlomPT9bTFBOUlZDKVZxTy4tSmRFLUQlP2svKW02NClATTtHYGwmKkslI3FNOnVVY0dLZCt1V0Q4QD07V0Jgcy9FdSZlUi9xUSdRJyhob0I3PVdkamRncCM+T0c4W1tIZjw2XTlzRmxpRDkxQW80MExKL1BpNUgpIlYzWWFea2ZoWkpfdGBoaF5XLzZsR2tvMUMhSzQvSS9BM09zLDVKOStwZEFsXTlhMy86LjloTSZHI283SipAIiZNKVhaRGozKF5MNG8yX3AyXS1ONXJoWlxSTTsvbjc5LjpmJCEwMm0zVDpbYWQyJzJYK05WXW1PQCFSZltTYWA3LlZJLWc5LC5iQnU0TlkwLCRPMioiXj1kQiwtcER1WjVMcyhuQz5LLGZeLzhJbzJJNSxsOS5vQyVuJmdkJFZVKFRJXFtqSCxfZkhya3F1Xkl0PE9gfj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAxMAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDExMiAwMDAwMCBuIAowMDAwMDAwMjE5IDAwMDAwIG4gCjAwMDAwMDAzMDIgMDAwMDAgbiAKMDAwMDAwMDQxNCAwMDAwMCBuIAowMDAwMDAwNjE3IDAwMDAwIG4gCjAwMDAwMDA2ODUgMDAwMDAgbiAKMDAwMDAwMDk2NSAwMDAwMCBuIAowMDAwMDAxMDI0IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPDQ0ZTRkNmQ4YWNiYzgyNDhlNGEzMDY5MjE0OTQ3MWQ2Pjw0NGU0ZDZkOGFjYmM4MjQ4ZTRhMzA2OTIxNDk0NzFkNj5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gNyAwIFIKL1Jvb3QgNiAwIFIKL1NpemUgMTAKPj4Kc3RhcnR4cmVmCjMxNjAKJSVFT0YK" download="Charte_engagement_adoption_La_Patte_Sur_Le_Coeur.pdf">⬇️ Télécharger le PDF</a>
+          <a class="btn" href="Charte_engagement_adoption_La_Patte_Sur_Le_Coeur.pdf" download="Charte_engagement_adoption_La_Patte_Sur_Le_Coeur.pdf">⬇️ Télécharger le PDF</a>
         </div>
       </div>
     </div>
@@ -932,17 +924,16 @@ footer{padding:16px 0 20px}
       <div class="section-head">
         <div>
           <div class="eyebrow">✉️ Nous contacter</div>
-          <h2>Envie de nous rejoindre ?</h2>
+          <h2>Envie de nous joindre ?</h2>
           <p>Que ce soit pour une adoption, du bénévolat ou une simple question, on vous répond avec plaisir.</p>
         </div>
       </div>
       <div class="contact-grid">
         <div class="contact-card">
           <h2>Écrivez-nous</h2>
-          <p>Contactez-nous en message privé ou par email — nous serions ravis de vous accueillir dans l'équipe ou de vous présenter nos chats.</p>
+          <p>Contactez-nous ou par email — nous serions ravis de vous accueillir dans l'équipe ou de vous présenter nos chats.</p>
           <div class="contact-actions">
             <a class="btn btn-ghost" href="mailto:lapattesurlecoeurlebarp@gmail.com">✉️ lapattesurlecoeurlebarp@gmail.com</a>
-            <button class="btn btn-outline" data-tab-link="chats">🐱 Voir les chats</button>
           </div>
         </div>
         <div class="contact-side">
@@ -950,44 +941,17 @@ footer{padding:16px 0 20px}
             <div class="ic">📍</div>
             <div><b>Le Barp</b><span>Nouvelle-Aquitaine, Gironde</span></div>
           </div>
-          <div class="info-card">
-            <div class="ic">✉️</div>
-            <div><b>Email</b><span>lapattesurlecoeurlebarp@gmail.com</span></div>
-          </div>
-          <div class="info-card">
-            <div class="ic">🐾</div>
-            <div><b>Association</b><span>Loi 1901, 100% bénévole</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-extra-grid">
-        <div class="side-card">
-          <h3>🕒 Horaires de permanence</h3>
-          <table class="hours-table" id="hoursTable"></table>
-          <p style="font-size:.8rem;color:var(--muted);font-weight:600;margin-top:12px">Nous n'accueillons aucun chat sans rendez-vous préalable — merci de nous contacter avant de vous déplacer.</p>
-        </div>
-        <div class="side-card">
-          <h3>📅 Agenda complet</h3>
-          <div id="agendaFull"></div>
-        </div>
-      </div>
-
-      <div class="contact-extra-grid" style="margin-top:18px">
-        <div class="side-card">
-          <h3>💌 Suivez-nous</h3>
-          <p style="font-size:.86rem;color:var(--muted);font-weight:600;margin:0">Informez-vous et relayez nos messages sur les réseaux sociaux.</p>
-          <div class="social-row">
-            <a class="social-btn" href="https://www.facebook.com/profile.php?id=61581589034382" title="Facebook">📘</a>
-            <a class="social-btn" href="https://www.instagram.com/lapattesurlecoeur_lebarp" title="Instagram">📷</a>
-          </div>
-        </div>
-        <div class="side-card">
-          <h3>📬 Newsletter</h3>
-          <p style="font-size:.86rem;color:var(--muted);font-weight:600;margin:0">Recevez nos actualités et nos appels à l'aide directement par email.</p>
-          <div class="newsletter-row">
-            <input type="email" id="newsletterEmail" placeholder="Votre email" />
-            <button onclick="subscribeNewsletter()">S'inscrire</button>
+          <div class="side-card">
+            <h3>💌 Suivez-nous</h3>
+            <p style="font-size:.86rem;color:var(--muted);font-weight:600;margin:0">Informez-vous et relayez nos messages sur les réseaux sociaux.</p>
+            <div class="social-row">
+              <a class="social-btn fb" href="https://www.facebook.com/profile.php?id=61581589034382" title="Facebook" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v3H7v4h3v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z" fill="currentColor"/></svg>
+              </a>
+              <a class="social-btn ig" href="https://www.instagram.com/lapattesurlecoeur_lebarp" title="Instagram" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1045,21 +1009,27 @@ footer{padding:16px 0 20px}
    - counter-famille        : "Chats en famille d'accueil" (target: 8)
    ============================================================ */
 const cats = [
-  {name:'Bijou', age:'chaton', gender:'♀', species:'Chat européen', color:'Blanc', urgent:false, fiv:false, area:'Le Barp',
+  {name:'Bijou', age:'chaton', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
    photos:['ANIMAUX/Bijou/Bijou_1.jpg', 'ANIMAUX/Bijou/Bijou_2.jpg', 'ANIMAUX/Bijou/Bijou_3.jpg', 'ANIMAUX/Bijou/Bijou_4.jpg'],
-   race:'Européen Blanc', desc:"BIJOU – Femelle de 4 à 5 mois<Br><Br>Je suis une petite minette discrète qui aime prendre le temps d'observer ce qui se passe autour de moi.<Br><Br>Mais dès qu'une séance de jeu se prépare, je suis toujours partante !<Br><Br>Mon endroit préféré ? Tout en haut de l'arbre à chats ! C'est mon poste d'observation favori, idéal pour surveiller les copains… et repérer les prochaines bêtises à faire (ou à empêcher ! 😉).<Br><Br>Curieuse, joueuse et pleine de douceur, je saurai faire le bonheur d'une famille qui me laissera évoluer à mon rythme tout en partageant de beaux moments de complicité.<Br><Br>🏡 Bijou est prête à trouver sa famille pour la vie.<Br><Br>"},
-  {name:'Buzz', age:'chaton', gender:'♂', species:'Chat européen', color:'Tigré Brun et Blanc', urgent:false, fiv:false, area:'Le Barp',
+   race:'x Siamois Blanc', desc:"BIJOU – Femelle de 3 à 4 mois<Br><Br>Je suis une petite minette discrète qui aime prendre le temps d'observer ce qui se passe autour de moi.<Br><Br>Mais dès qu'une séance de jeu se prépare, je suis toujours partante !<Br><Br>Mon endroit préféré ? Tout en haut de l'arbre à chats ! C'est mon poste d'observation favori, idéal pour surveiller les copains… et repérer les prochaines bêtises à faire (ou à empêcher ! 😉).<Br><Br>Curieuse, joueuse et pleine de douceur, je saurai faire le bonheur d'une famille qui me laissera évoluer à mon rythme tout en partageant de beaux moments de complicité.<Br><Br>🏡 Bijou est prête à trouver sa famille pour la vie.<Br><Br>"},
+  {name:'Buzz', age:'chaton', gender:'♂', species:'Chat européen', color:'Tigré Brun et Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
    photos:['ANIMAUX/Buzz/Buzz_1.jpg', 'ANIMAUX/Buzz/Buzz_2.jpg', 'ANIMAUX/Buzz/Buzz_3.jpg', 'ANIMAUX/Buzz/Buzz_4.jpg'],
 /* ============================================================
    video:'https://www.youtube.com/watch?v=J---aiyznGQ',
    ============================================================ */
    race:'Européen Tigré Brun et Blanc', desc:"BUZZ – Mâle de 5 à 6 mois<Br><Br>Au début, je peux être un peu réservé, mais chaque jour je fais de beaux progrès et j'apprends à faire confiance. Une fois rassuré, j'adore jouer, explorer et partager de tendres moments de câlins.<Br><Br>Je recherche une famille douce et patiente qui me laissera le temps de m'épanouir. En échange, je vous offrirai toute mon affection et de nombreux moments de complicité.<Br><Br>🏡 Buzz est prêt à rejoindre sa famille pour la vie.<Br><Br>"},
-  {name:'Bianca', age:'chaton', gender:'♀', species:'Chat européen', color:'Blanc', urgent:false, fiv:false, area:'Le Barp',
+  {name:'Bianca', age:'chaton', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
    photos:['ANIMAUX/Bianca/Bianca_1.jpg', 'ANIMAUX/Bianca/Bianca_2.jpg', 'ANIMAUX/Bianca/Bianca_3.jpg'],
-   race:'Européen Blanc', desc:"BIANCA – Femelle de 4 à 5 mois<Br><Br>Je suis une jeune minette douce et réservée. Mon passé m'a appris à être prudente, alors j'ai encore besoin d'un peu de temps pour accorder pleinement ma confiance.<Br><Br>Je suis encore un peu craintive et je n'ai pas encore révélé toute ma personnalité. Mais chaque jour, je fais de petits progrès et je découvre que les humains peuvent aussi être synonymes de douceur, de patience et de sécurité.<Br><Br>Avec une famille calme et bienveillante, je pourrai m'épanouir à mon rythme et laisser apparaître la merveilleuse compagne qui sommeille en moi.<Br><Br>Parce que les plus belles histoires sont souvent celles qui se construisent avec patience, je mérite, moi aussi, une chance de trouver une famille qui m'aimera telle que je suis. ❤️<Br><Br>🏡 Bianca est prête à trouver sa famille pour la vie.<Br><Br>"},
-  {name:'Bounty', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, area:'Le Barp',
+   race:'x Siamois Blanc', desc:"BIANCA – Femelle de 3 à 4 mois<Br><Br>Je suis une jeune minette douce et réservée. Mon passé m'a appris à être prudente, alors j'ai encore besoin d'un peu de temps pour accorder pleinement ma confiance.<Br><Br>Je suis encore un peu craintive et je n'ai pas encore révélé toute ma personnalité. Mais chaque jour, je fais de petits progrès et je découvre que les humains peuvent aussi être synonymes de douceur, de patience et de sécurité.<Br><Br>Avec une famille calme et bienveillante, je pourrai m'épanouir à mon rythme et laisser apparaître la merveilleuse compagne qui sommeille en moi.<Br><Br>Parce que les plus belles histoires sont souvent celles qui se construisent avec patience, je mérite, moi aussi, une chance de trouver une famille qui m'aimera telle que je suis. ❤️<Br><Br>🏡 Bianca est prête à trouver sa famille pour la vie.<Br><Br>"},
+  {name:'Bounty', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
    photos:['ANIMAUX/Bounty/Bounty_1.jpg', 'ANIMAUX/Bounty/Bounty_2.jpg', 'ANIMAUX/Bounty/Bounty_3.jpg'],
-   race:'Européen Noir & Blanc', desc:"BOUNTY – Femelle de 4 à 5 mois<Br><Br>Je suis une petite minette curieuse qui aime découvrir le monde qui m'entoure… mais toujours avec une pointe de prudence. J'aime prendre le temps d'observer avant de me lancer.<Br><Br>Discrète de nature, je révèle vite mon côté espiègle dès qu'un jouet apparaît. Les séances de jeu sont un vrai bonheur pour moi ! Et s'il y a une petite gourmandise à la clé, je suis la première à accourir… je suis une vraie gourmande ! 😻<Br><Br>Avec un peu de douceur et de patience, je saurai m'épanouir pleinement et devenir une compagne fidèle et attachante.<Br><Br>🏡 Bounty est prête à rejoindre sa famille pour la vie.<Br><Br>"}
+   race:'Européen Noir & Blanc', desc:"BOUNTY – Femelle de 3 à 4 mois<Br><Br>Je suis une petite minette curieuse qui aime découvrir le monde qui m'entoure… mais toujours avec une pointe de prudence. J'aime prendre le temps d'observer avant de me lancer.<Br><Br>Discrète de nature, je révèle vite mon côté espiègle dès qu'un jouet apparaît. Les séances de jeu sont un vrai bonheur pour moi ! Et s'il y a une petite gourmandise à la clé, je suis la première à accourir… je suis une vraie gourmande ! 😻<Br><Br>Avec un peu de douceur et de patience, je saurai m'épanouir pleinement et devenir une compagne fidèle et attachante.<Br><Br>🏡 Bounty est prête à rejoindre sa famille pour la vie.<Br><Br>"},
+  {name:'Brume', age:'chaton', gender:'♀', species:'Chat européen', color:'Tigré Gris et Blanc', urgent:false, fiv:false, soon:true, area:'Le Barp',
+   photos:['ANIMAUX/Brume/Brume_1.jpg', 'ANIMAUX/Brume/Brume_2.jpg', 'ANIMAUX/Brume/Brume_3.jpg'],
+   race:'Européen Tigré Gris et Blanc', desc:"BRUME – Femelle, 4 à 5 mois<Br><Br>Je suis encore une petite très réservée. J'observe beaucoup et j'ai besoin de temps pour prendre confiance.<Br><Br>Quand je pense que personne ne me regarde, je me transforme en véritable petite joueuse et je m'amuse avec tout ce qui me tombe sous la patte !<Br><Br>Petit à petit, je fais de grands progrès. Je me laisse caresser et, une fois rassurée, j'apprécie énormément les câlins.<Br><Br>Même si je reste encore un peu fuyante, chaque jour est une nouvelle victoire. Je poursuis mon apprentissage au sein de ma famille d'accueil, où je découvre que les humains peuvent être synonymes de douceur et de sécurité.<Br><Br>💙 Brume n'est pas encore prête à l'adoption. Elle a besoin de continuer à prendre confiance avant de partir rejoindre sa future famille. Nous sommes très fiers des progrès qu'elle réalise chaque jour.<Br><Br>Merci de suivre son évolution et de l'encourager dans cette belle aventure. 🐾<Br><Br>"},
+  {name:'Brigand', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:true, area:'Le Barp',
+   photos:['ANIMAUX/Brigand/Brigand_1.jpg', 'ANIMAUX/Brigand/Brigand_2.jpg'],
+   race:'Européen Noir & Blanc', desc:"BRIGAND – Mâle de 3 à 4 mois<Br><Br>Brigand est un petit minou très timide qui commence à s'ouvrir aux humains.<Br><Br>Il adore ses jouets et dormir sur les étagères de la bibliothèque.<Br><Br>"}
 ];
 
 const missions = [
@@ -1079,7 +1049,7 @@ const whyPoints = [
 
 const steps = [
   {no:'01', title:'Cherchez', text:"Parcourez les fiches de nos chats dans l'onglet « Nos chats » et filtrez par âge ou disponibilité."},
-  {no:'02', title:'Contactez-nous', text:"Écrivez-nous par email ou message privé pour échanger sur le chat qui vous a touché."},
+  {no:'02', title:'Contactez-nous', text:"Écrivez-nous par email pour échanger sur le chat qui vous a touché."},
   {no:'03', title:'Rencontrez', text:"Organisons une rencontre pour vous assurer que le courant passe bien, avant toute décision."},
   {no:'04', title:'Adoptez', text:"Signez le contrat d'adoption et repartez avec votre nouveau compagnon, entouré de nos conseils !"}
 ];
@@ -1108,6 +1078,18 @@ const news = [
    photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/1280px-Felis_catus-cat_on_snow.jpg',
    full:"Certains chatons arrivés récemment ont vécu dans la rue et restent craintifs face à l'humain. Nos familles d'accueil travaillent quotidiennement à leur sociabilisation avant de les présenter à l'adoption, dans leur intérêt comme dans celui des futurs adoptants. Merci de votre patience — ils seront bientôt prêts à trouver leur foyer pour la vie."}
    ============================================================ */
+];
+
+const testimonials = [
+  {id:'t3', name:'Jennifer', role:"Présidente & Famille d'accueil",
+   excerpt:"Voir partir les petites boules de poils que l'on a accueillies est un moment émouvant. C est un vrai plaisir d'assister à la rencontre entre une famille et un chaton, on a vraiment l'impression que c’est le chat qui choisit avec qui il va passer sa vie !",
+   full:"Voir partir les petites boules de poils que l'on a accueillies est un moment émouvant. C est un vrai plaisir d'assister à la rencontre entre une famille et un chaton, on a vraiment l'impression que c’est le chat qui choisit avec qui il va passer sa vie !"},
+  {id:'t2', name:'Chantal', role:"Famille d'accueil",
+   excerpt:"Quand j'ai ouvert ma porte à cette maman chat et ses deux petits, je ne savais pas à quel point cette aventure allait me toucher...",
+   full:"Quand j'ai ouvert ma porte à cette maman chat et ses deux petits, je ne savais pas à quel point cette aventure allait me toucher...<Br><Br>Au début, La maman était stressée, les petits restaient cachés.<Br><Br>Puis le déclic s'est produit, elle s'est détendue et a à nouveau fait confiance.<Br><Br>Les petits ont montré leur tête petit à petit, un vrai plaisir de les voir s'épanouir.<Br><Br>Le jour de l'adoption j'avais le cœur serré, mais j'ai ressenti une grande fierté de leur avoir offert un refuge sûr et de les savoir heureux."},
+  {id:'t1', name:'Cathy', role:"Famille d'accueil",
+   excerpt:"Il y a un mois, j’ai accueilli mes premiers chatons en tant que famille d’accueil, au nombre de huit...",
+   full:"Il y a un mois, j’ai accueilli mes premiers chatons en tant que famille d’accueil, au nombre de huit<Br><Br>Au début, j’avais beaucoup d’appréhension. Les voir aussi stressés, craintifs, parfois complètement perdus, m’a fait me demander si j’allais réussir à les aider. Je savais que les premiers jours seraient importants, mais je ne savais pas encore à quel point il faudrait leur laisser du temps… et surtout, respecter le rythme de chacun.<Br><Br>Et puis, petit à petit, les déclics sont arrivés. Pas tous en même temps, pas de la même façon, mais chacun à son rythme. Un premier câlin accepté, un petit ronronnement, un regard différent, un jeu qui commence… Tous ces petits progrès, qui peuvent sembler insignifiants, sont en réalité de grandes victoires.<Br><Br>Être famille d’accueil, ce n’est pas seulement donner des câlins et beaucoup d’amour. C’est aussi être rigoureuse au quotidien : surveiller leur alimentation, suivre leur poids, leurs selles, leur comportement, veiller à leur bien-être et être attentive au moindre changement et à chacun.<Br><Br>Il faut aussi apprendre à ne pas vouloir aller trop vite. Certains ont besoin de quelques jours, d’autres de beaucoup plus de temps. Il faut observer, rassurer, encourager… et parfois simplement être là.<Br><Br>Et puis vient le moment de la séparation.<Br><Br>Même si elle n’est pas toujours facile, cette séparation m’a finalement rendue très fière. Fière de voir le chemin parcouru. Fière de me dire que ces 8 petits êtres sont aujourd’hui mieux préparés pour leur nouvelle vie grâce à ce que j’ai pu leur apporter.<Br><Br>Être famille d’accueil, c’est parfois avoir le cœur serré… mais c’est surtout avoir le cœur rempli. Et si c’était à refaire, je le referais sans hésiter. Parce que voir un chaton passer de la peur à la confiance, et savoir qu’on a contribué à ce changement, c’est une expérience que je n’oublierai pas. "}
 ];
 
 const agenda = [
@@ -1211,7 +1193,10 @@ function catCard(c){
     <div class="cat-scrim"></div>
     <div class="cat-top-badges">
       <span class="cat-badge">${ageLabel(c.age)}</span>
-      ${c.urgent ? `<span class="cat-badge urgent">🔴 Urgence</span>` : '<span></span>'}
+      <div class="badge-group">
+        ${c.urgent ? `<span class="cat-badge urgent">🔴 Urgence</span>` : ''}
+        ${c.soon ? `<span class="cat-badge soon">🕓 Bientôt à l'adoption</span>` : ''}
+      </div>
     </div>
     <div class="cat-info">
       <div class="name">${c.name}</div>
@@ -1397,6 +1382,7 @@ function openModal(name){
           <span class="tag">${c.race}</span>
           ${c.fiv ? '<span class="tag">FIV/FeLV+</span>' : ''}
           ${c.urgent ? '<span class="tag">🔴 Urgence</span>' : ''}
+          ${c.soon ? '<span class="tag">🕓 Bientôt à l\'adoption</span>' : ''}
         </div>
         <p style="color:var(--muted);line-height:1.8;font-weight:600;margin-top:14px">${c.desc}</p>
         <div class="modal-contact">
@@ -1470,6 +1456,52 @@ function renderNews(){
   document.querySelectorAll('[data-news]').forEach(el => el.addEventListener('click', () => openNewsModal(el.dataset.news)));
 }
 
+/* ============================================================
+   TÉMOIGNAGES (familles d'accueil)
+   ============================================================ */
+function quoteCard(t){
+  return `<article class="quote-card" data-quote="${t.id}">
+    <span class="q-mark">"</span>
+    <p>${t.excerpt}</p>
+    <div class="q-author">
+      <div class="q-author-info">
+        <div class="q-avatar">🐈</div>
+        <div>
+          <div class="q-name">${t.name}</div>
+          <div class="q-role">${t.role}</div>
+        </div>
+      </div>
+      <span class="q-read">Lire la suite →</span>
+    </div>
+  </article>`;
+}
+function renderTestimonials(){
+  const grid = document.getElementById('quoteGrid');
+  if(!grid) return;
+  grid.innerHTML = testimonials.map(quoteCard).join('');
+  grid.querySelectorAll('[data-quote]').forEach(el => el.addEventListener('click', () => openTestimonialModal(el.dataset.quote)));
+}
+function openTestimonialModal(id){
+  const t = testimonials.find(x => x.id === id);
+  if(!t) return;
+  document.getElementById('modalBody').innerHTML = `
+    <div style="max-width:640px;margin:0 auto;padding:10px">
+      <span class="quote-modal-mark">"</span>
+      <p style="color:var(--ink);line-height:1.85;font-weight:600;font-size:1.02rem;margin:0 0 22px">${t.full}</p>
+      <div class="q-author" style="justify-content:flex-start">
+        <div class="q-author-info">
+          <div class="q-avatar" style="width:48px;height:48px;font-size:1.3rem">🐈</div>
+          <div>
+            <div class="q-name" style="font-size:.95rem">${t.name}</div>
+            <div class="q-role">${t.role}</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('modalBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
 function agendaItem(a){
   return `<div class="agenda-item">
     <div class="agenda-date"><b>${a.day}</b><span>${a.month}</span></div>
@@ -1535,16 +1567,17 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStepperNav();
   renderStepDetail();
   renderNews();
+  renderTestimonials();
   renderAgenda();
   renderHours();
   renderHelp();
   setTimeout(() => {
     animateCounter('counter-animaux', cats.length);
-    animateCounter('counter-adoptes', 74);
+    animateCounter('counter-adoptes', 0);
     animateCounter('counter-benevole', 100, '%');
-    animateCounter('counter-sterilises', 60);
-    animateCounter('counter-adoptes-total', 74);
-    animateCounter('counter-famille', 8);
+    animateCounter('counter-sterilises', 0);
+    animateCounter('counter-adoptes-total', 6);
+    animateCounter('counter-famille', 12);
   }, 600);
 });
 </script>
