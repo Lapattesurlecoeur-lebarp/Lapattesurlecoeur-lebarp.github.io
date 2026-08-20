@@ -118,6 +118,12 @@ h1,h2,h3{font-family:'Sora',sans-serif;font-weight:700;color:var(--navy);letter-
 
 /* ---------- Hero ---------- */
 .hero{padding:56px 0 30px}
+.notice-banner{
+  display:flex;align-items:center;gap:12px;
+  background:var(--gold-soft);border:1px solid rgba(231,172,60,.45);border-radius:16px;
+  padding:14px 18px;margin-top:24px;color:#6b4c12;font-weight:700;font-size:.88rem;line-height:1.5;
+}
+.notice-banner .nb-icon{flex:0 0 auto;font-size:1.2rem}
 .hero-shell{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-weight:800;color:var(--coral-2);font-size:.82rem;box-shadow:var(--shadow-sm);backdrop-filter:blur(8px)}
 h1.hero-title{margin:20px 0 0;font-size:clamp(2.6rem,5.2vw,4.2rem);line-height:1.02}
@@ -571,6 +577,7 @@ footer{padding:16px 0 20px}
   .nav-cta{display:none}
   .brand-copy{display:none}
   .hero{padding:30px 0 20px}
+  .notice-banner{margin-top:16px;font-size:.82rem;padding:12px 14px}
   .hero-actions .btn{width:100%;justify-content:center}
   .hero-stats{gap:18px 16px;grid-template-columns:repeat(2,1fr);max-width:none}
   .quick-grid{grid-template-columns:1fr}
@@ -631,6 +638,10 @@ footer{padding:16px 0 20px}
 
   <!-- ================= PANEL ACCUEIL ================= -->
   <section class="panel active" id="panel-accueil">
+    <div class="notice-banner">
+      <span class="nb-icon">ℹ️</span>
+      <span>L'association n'assure aucun service de fourrière ni d'urgences vétérinaires. Merci pour votre compréhension.</span>
+    </div>
     <div class="hero">
       <div class="hero-shell">
         <div>
@@ -691,36 +702,40 @@ footer{padding:16px 0 20px}
         </div>
       </div>
       <div class="story-lead">
-        <p>Tout a commencé en 2019, dans le jardin de <b>Sandrine</b>, à quelques rues du centre du Barp. Un chaton famélique s'était réfugié sous sa terrasse un soir d'orage. Elle l'a nourri, soigné, puis a compris qu'il n'était pas seul : toute une colonie de chats errants survivait tant bien que mal autour du quartier, livrée à elle-même.</p>
-        <p>Avec deux voisines aussi passionnées qu'elle, elle a commencé à stériliser, nourrir et soigner ces chats un par un, sur ses économies et son temps libre. Le bouche-à-oreille a fait le reste : des habitants du Barp puis des communes voisines ont commencé à signaler des chats en détresse, à proposer leur aide, à ouvrir leur maison pour des familles d'accueil temporaires.</p>
-        <p>En 2021, l'association <b>La Patte Sur Le Coeur</b> est officiellement née, loi 1901, entièrement bénévole. Depuis, nous avons soigné, stérilisé et fait adopter des dizaines de chats, construit un réseau de familles d'accueil fidèles, et surtout : nous n'avons jamais laissé un appel à l'aide sans réponse.</p>
+        <p>L'idée de créer une association dédiée aux chats errants sur la commune de Le Barp a émergé à l'automne 2025. Le temps de contacter les autres associations locales, nous retrouver entre passionnés pour poser le projet, de créer le bureau, et de lancer les démarches administratives, La Patte sur le coeur-Le Barp  est née officiellement au printemps 2026. </p>
+        <p>Nous avons pu lancer nos 1ères prises en charge assez rapidement et des bénévoles sont venus renforcer l'équipe pour des actions ponctuelles. Il y a du travail mais quelle satisfaction de voir les chats les plus sociables partir en adoption et de participer à la gestion des populations de chats errants de façon progressive.</p>
       </div>
 
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-year">2019</div>
-          <h4>Une rencontre sous la pluie</h4>
-          <p>Sandrine recueille son premier chaton errant et découvre l'ampleur de la colonie de chats livrés à eux-mêmes autour du Barp.</p>
+          <div class="tl-year">Mars 2026</div>
+          <h4>Création du Bureau</h4>
+          <p></p>
         </div>
         <div class="tl-item">
-          <div class="tl-year">2020</div>
-          <h4>Les premières stérilisations</h4>
-          <p>Un petit groupe de bénévoles se forme et lance les premières campagnes de stérilisation, financées sur leurs propres deniers.</p>
+          <div class="tl-year">Avril 2026</div>
+          <h4>Reconnaissance de l'association par la préfecture de Gironde</h4>
+          <p></p>
         </div>
         <div class="tl-item">
-          <div class="tl-year">2021</div>
-          <h4>Naissance officielle de l'association</h4>
-          <p>La Patte Sur Le Coeur est déclarée en préfecture. Les premières familles d'accueil rejoignent l'aventure.</p>
+          <div class="tl-year">Mai 2026</div>
+          <h4>1ère prise en charge d'un chat adulte errant en Famille d'Accueil (adopté depuis)</h4>
+          <p></p>
         </div>
         <div class="tl-item">
-          <div class="tl-year">2023</div>
-          <h4>Le réseau s'agrandit</h4>
-          <p>De nouvelles communes rejoignent notre zone d'action. Nous dépassons les 50 adoptions réussies depuis la création.</p>
+          <div class="tl-year">Juin 2026</div>
+          <h4>1ères stérilisations de minettes errantes</h4>
+          <p></p>
         </div>
         <div class="tl-item">
-          <div class="tl-year">Aujourd'hui</div>
-          <h4>Une équipe soudée, toujours bénévole</h4>
-          <p>Une dizaine de membres actifs, huit familles d'accueil régulières, et un appel : rejoignez-nous, il y a une place pour vous aussi.</p>
+          <div class="tl-year">Juillet 2026</div>
+          <h4>Multiples prises en charge de chatons errants et stérilisation des mamans</h4>
+          <p></p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Aout 2026</div>
+          <h4>Confirmation reconnaissance intérêt général, 1ères adoption de chatons</h4>
+          <p></p>
         </div>
       </div>
     </div>
@@ -738,19 +753,19 @@ footer{padding:16px 0 20px}
           <div class="team-avatar">🐾</div>
           <h4>Jennifer</h4>
           <span class="role">Présidente & fondatrice</span>
-          <p>À l'origine de l'association. Coordonne les sauvetages et les relations avec les vétérinaires partenaires.</p>
+          <p>À l'origine de l'association</p><p>Coordonne les sauvetages et les relations avec les partenaires</p>
         </div>
         <div class="team-card">
           <div class="team-avatar">📋</div>
           <h4>Cathy</h4>
           <span class="role">Trésorière</span>
-          <p>Gère les comptes, les dons et les demandes de subventions depuis la création de l'association.</p>
+          <p>Titulaire de l'ACACED</p><p>Gère les comptes et co-coordonne les sauvetages</p>
         </div>
         <div class="team-card">
           <div class="team-avatar">📣</div>
           <h4>Neela</h4>
           <span class="role">Secrétaire</span>
-          <p></p>
+          <p>Une vrai passionnée de la cause animale</p>
         </div>
       </div>
     </div>
@@ -758,7 +773,7 @@ footer{padding:16px 0 20px}
     <div class="block">
       <div class="section-head">
         <div>
-          <div class="eyebrow">🏡 Les familles d'accueil</div>
+          <div class="eyebrow"><Br><Br>🏡 Les familles d'accueil</div>
           <h2 style="font-size:1.7rem">Le cœur battant de nos sauvetages</h2>
           <p>Avant chaque adoption, la plupart de nos chats passent par une famille d'accueil : un foyer temporaire, le temps de se soigner, se sociabiliser et reprendre confiance.</p>
         </div>
@@ -769,7 +784,7 @@ footer{padding:16px 0 20px}
     <div class="block" style="padding-top:0">
       <div class="section-head">
         <div>
-          <div class="eyebrow">✨ Nos valeurs</div>
+          <div class="eyebrow"><Br><Br>✨ Nos valeurs</div>
           <h2 style="font-size:1.7rem">Ce qui nous guide au quotidien</h2>
         </div>
       </div>
@@ -940,7 +955,7 @@ footer{padding:16px 0 20px}
       <div class="contact-grid">
         <div class="contact-card">
           <h2>Écrivez-nous</h2>
-          <p>Contactez-nous ou par email — nous serions ravis de vous accueillir dans l'équipe ou de vous présenter nos chats.</p>
+          <p>Nous faisons de notre mieux pour répondre à chacun dans les meilleurs délais. Si vous nous envoyez un e-mail, un bénévole vous répondra dès qu’il sera disponible.</p><p>Merci pour votre compréhension et votre patience...</p>
           <div class="contact-actions">
             <a class="btn btn-ghost" href="mailto:lapattesurlecoeurlebarp@gmail.com">✉️ lapattesurlecoeurlebarp@gmail.com</a>
           </div>
