@@ -163,7 +163,7 @@ h1.hero-title .accent{background:linear-gradient(120deg,var(--coral),var(--gold)
 .quick-link svg{transition:transform .2s ease}
 
 /* ---------- Section commons ---------- */
-section.block{padding:44px 0}
+.block{padding:44px 0}
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap}
 .eyebrow{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;font-weight:800;color:var(--coral-2);display:flex;align-items:center;gap:8px}
 .section-head h2{margin:8px 0 0;font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.06}
@@ -226,6 +226,7 @@ section.block{padding:44px 0}
 .cat-badge{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.92);font-size:.72rem;font-weight:800;color:var(--navy);white-space:nowrap}
 .cat-badge.urgent{background:var(--coral);color:#fff}
 .cat-badge.soon{background:var(--gold);color:var(--navy)}
+.cat-badge.reserved{background:var(--navy-2);color:#fff}
 .cat-info{position:absolute;left:18px;right:18px;bottom:16px;color:#fff}
 .cat-info .name{font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:700}
 .cat-info .meta{font-size:.8rem;opacity:.86;font-weight:700;margin-top:2px}
@@ -604,7 +605,7 @@ footer{padding:16px 0 20px}
   .help-grid{grid-template-columns:1fr}
   .footer-inner{padding:16px 20px;flex-direction:column;align-items:flex-start}
   .alert-card{width:250px}
-  section.block{padding:30px 0}
+  .block{padding:30px 0}
   .quick-grid{margin-top:34px}
 }
 </style>
@@ -773,7 +774,7 @@ footer{padding:16px 0 20px}
     <div class="block">
       <div class="section-head">
         <div>
-          <div class="eyebrow"><Br><Br>🏡 Les familles d'accueil</div>
+          <div class="eyebrow">🏡 Les familles d'accueil</div>
           <h2 style="font-size:1.7rem">Le cœur battant de nos sauvetages</h2>
           <p>Avant chaque adoption, la plupart de nos chats passent par une famille d'accueil : un foyer temporaire, le temps de se soigner, se sociabiliser et reprendre confiance.</p>
         </div>
@@ -781,10 +782,10 @@ footer{padding:16px 0 20px}
       <div class="quote-grid" id="quoteGrid"></div>
     </div>
 
-    <div class="block" style="padding-top:0">
+    <div class="block">
       <div class="section-head">
         <div>
-          <div class="eyebrow"><Br><Br>✨ Nos valeurs</div>
+          <div class="eyebrow">✨ Nos valeurs</div>
           <h2 style="font-size:1.7rem">Ce qui nous guide au quotidien</h2>
         </div>
       </div>
@@ -808,6 +809,38 @@ footer{padding:16px 0 20px}
           <div class="v-icon">🌍</div>
           <h4>Proximité</h4>
           <p>Une présence locale au Barp et dans les communes voisines.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" style="padding-top:0">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">🎯 Nos missions</div>
+          <h2 style="font-size:1.7rem">Agir pour le bien-être des chats et des animaux de la commune</h2>
+          <p>Notre association agit, avec le soutien de la municipalité de Le Barp, pour améliorer le bien-être des chats errants et limiter leur prolifération de manière responsable.</p>
+        </div>
+      </div>
+      <div class="value-strip">
+        <div class="value-item">
+          <div class="v-icon">✂️</div>
+          <h4>Stériliser et protéger les chats errants</h4>
+          <p>Nous faisons stériliser les chats sauvages avant de les remettre sur leur lieu de vie, afin de limiter les naissances et d'améliorer leur état sanitaire.</p>
+        </div>
+        <div class="value-item">
+          <div class="v-icon">🏡</div>
+          <h4>Favoriser l'adoption des chats sociables</h4>
+          <p>Les chats pouvant vivre auprès des humains sont identifiés, stérilisés et proposés à l'adoption pour leur offrir une vie dans un foyer.</p>
+        </div>
+        <div class="value-item">
+          <div class="v-icon">🍼</div>
+          <h4>Prendre en charge les chatons</h4>
+          <p>Selon nos possibilités, nous accueillons les chatons trouvés sur la commune afin de les soigner, de les sociabiliser et de leur trouver une famille.</p>
+        </div>
+        <div class="value-item">
+          <div class="v-icon">💬</div>
+          <h4>Informer et accompagner les habitants</h4>
+          <p>Nous sommes là pour informer, conseiller et sensibiliser les habitants aux bonnes pratiques pour le bien-être et la protection des animaux.</p>
         </div>
       </div>
     </div>
@@ -1032,7 +1065,7 @@ footer{padding:16px 0 20px}
    animateCounter(...) — à mettre à jour avec les chiffres réels de
    l'association :
    - counter-animaux        : "Chats à adopter" — calculé automatiquement
-                               (nombre de chats avec soon=false)
+                               (nombre de chats avec soon=false et reserved=false)
    - counter-adoptes        : "Chats bientôt à l'adoption" — calculé automatiquement
                                (nombre de chats avec soon=true)
    - counter-benevole       : "Bénévole"  (target: 100, suffixe %)
@@ -1041,37 +1074,37 @@ footer{padding:16px 0 20px}
    - counter-famille        : "Chats en famille d'accueil" (target: 8)
    ============================================================ */
 const cats = [
-  {name:'Bijou', age:'chaton', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
+  {name:'Bijou', age:'chaton', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bijou/Bijou_1.jpg', 'ANIMAUX/Bijou/Bijou_2.jpg', 'ANIMAUX/Bijou/Bijou_3.jpg', 'ANIMAUX/Bijou/Bijou_4.jpg'],
    race:'x Siamois Blanc', desc:"BIJOU – Femelle de 3 à 4 mois<Br><Br>Je suis une petite minette discrète qui aime prendre le temps d'observer ce qui se passe autour de moi.<Br><Br>Mais dès qu'une séance de jeu se prépare, je suis toujours partante !<Br><Br>Mon endroit préféré ? Tout en haut de l'arbre à chats ! C'est mon poste d'observation favori, idéal pour surveiller les copains… et repérer les prochaines bêtises à faire (ou à empêcher ! 😉).<Br><Br>Curieuse, joueuse et pleine de douceur, je saurai faire le bonheur d'une famille qui me laissera évoluer à mon rythme tout en partageant de beaux moments de complicité.<Br><Br>🏡 Bijou est prête à trouver sa famille pour la vie.<Br><Br>"},
-  {name:'Buzz', age:'chaton', gender:'♂', species:'Chat européen', color:'Tigré Brun et Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
+  {name:'Buzz', age:'chaton', gender:'♂', species:'Chat européen', color:'Tigré Brun et Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Buzz/Buzz_1.jpg', 'ANIMAUX/Buzz/Buzz_2.jpg', 'ANIMAUX/Buzz/Buzz_3.jpg', 'ANIMAUX/Buzz/Buzz_4.jpg'],
 /* ============================================================
    video:'https://www.youtube.com/watch?v=J---aiyznGQ',
    ============================================================ */
    race:'Européen Tigré Brun et Blanc', desc:"BUZZ – Mâle de 5 à 6 mois<Br><Br>Au début, je peux être un peu réservé, mais chaque jour je fais de beaux progrès et j'apprends à faire confiance. Une fois rassuré, j'adore jouer, explorer et partager de tendres moments de câlins.<Br><Br>Je recherche une famille douce et patiente qui me laissera le temps de m'épanouir. En échange, je vous offrirai toute mon affection et de nombreux moments de complicité.<Br><Br>🏡 Buzz est prêt à rejoindre sa famille pour la vie.<Br><Br>"},
-  {name:'Bianca', age:'chaton', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
+  {name:'Bianca', age:'chaton', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bianca/Bianca_1.jpg', 'ANIMAUX/Bianca/Bianca_2.jpg', 'ANIMAUX/Bianca/Bianca_3.jpg'],
    race:'x Siamois Blanc', desc:"BIANCA – Femelle de 3 à 4 mois<Br><Br>Je suis une jeune minette douce et réservée. Mon passé m'a appris à être prudente, alors j'ai encore besoin d'un peu de temps pour accorder pleinement ma confiance.<Br><Br>Je suis encore un peu craintive et je n'ai pas encore révélé toute ma personnalité. Mais chaque jour, je fais de petits progrès et je découvre que les humains peuvent aussi être synonymes de douceur, de patience et de sécurité.<Br><Br>Avec une famille calme et bienveillante, je pourrai m'épanouir à mon rythme et laisser apparaître la merveilleuse compagne qui sommeille en moi.<Br><Br>Parce que les plus belles histoires sont souvent celles qui se construisent avec patience, je mérite, moi aussi, une chance de trouver une famille qui m'aimera telle que je suis. ❤️<Br><Br>🏡 Bianca est prête à trouver sa famille pour la vie.<Br><Br>"},
-  {name:'Bounty', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
+  {name:'Bounty', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bounty/Bounty_1.jpg', 'ANIMAUX/Bounty/Bounty_2.jpg', 'ANIMAUX/Bounty/Bounty_3.jpg'],
    race:'Européen Noir & Blanc', desc:"BOUNTY – Femelle de 3 à 4 mois<Br><Br>Je suis une petite minette curieuse qui aime découvrir le monde qui m'entoure… mais toujours avec une pointe de prudence. J'aime prendre le temps d'observer avant de me lancer.<Br><Br>Discrète de nature, je révèle vite mon côté espiègle dès qu'un jouet apparaît. Les séances de jeu sont un vrai bonheur pour moi ! Et s'il y a une petite gourmandise à la clé, je suis la première à accourir… je suis une vraie gourmande ! 😻<Br><Br>Avec un peu de douceur et de patience, je saurai m'épanouir pleinement et devenir une compagne fidèle et attachante.<Br><Br>🏡 Bounty est prête à rejoindre sa famille pour la vie.<Br><Br>"},
-  {name:'Brume', age:'chaton', gender:'♀', species:'Chat européen', color:'Tigré Gris et Blanc', urgent:false, fiv:false, soon:true, area:'Le Barp',
+  {name:'Brume', age:'chaton', gender:'♀', species:'Chat européen', color:'Tigré Gris et Blanc', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Brume/Brume_1.jpg', 'ANIMAUX/Brume/Brume_2.jpg', 'ANIMAUX/Brume/Brume_3.jpg'],
    race:'Européen Tigré Gris et Blanc', desc:"BRUME – Femelle, 4 à 5 mois<Br><Br>Je suis encore une petite très réservée. J'observe beaucoup et j'ai besoin de temps pour prendre confiance.<Br><Br>Quand je pense que personne ne me regarde, je me transforme en véritable petite joueuse et je m'amuse avec tout ce qui me tombe sous la patte !<Br><Br>Petit à petit, je fais de grands progrès. Je me laisse caresser et, une fois rassurée, j'apprécie énormément les câlins.<Br><Br>Même si je reste encore un peu fuyante, chaque jour est une nouvelle victoire. Je poursuis mon apprentissage au sein de ma famille d'accueil, où je découvre que les humains peuvent être synonymes de douceur et de sécurité.<Br><Br>💙 Brume n'est pas encore prête à l'adoption. Elle a besoin de continuer à prendre confiance avant de partir rejoindre sa future famille. Nous sommes très fiers des progrès qu'elle réalise chaque jour.<Br><Br>Merci de suivre son évolution et de l'encourager dans cette belle aventure. 🐾<Br><Br>"},
-  {name:'Belette', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:true, area:'Le Barp',
+  {name:'Belette', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Belette/Belette_1.jpg'],
    race:'Européen Noir', desc:""},
-  {name:'Bolide', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:true, area:'Le Barp',
+  {name:'Bolide', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bolide/Bolide_1.jpg', 'ANIMAUX/Bolide/Bolide_2.jpg'],
    race:'Européen Noir', desc:""},
-  {name:'Brigand', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:true, area:'Le Barp',
+  {name:'Brigand', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Brigand/Brigand_1.jpg', 'ANIMAUX/Brigand/Brigand_2.jpg'],
    race:'Européen Noir & Blanc', desc:"BRIGAND – Mâle de 3 à 4 mois<Br><Br>Brigand est un petit minou très timide qui commence à s'ouvrir aux humains.<Br><Br>Il adore ses jouets et dormir sur les étagères de la bibliothèque.<Br><Br>"},
-  {name:'Blitz', age:'chaton', gender:'♀', species:'Chat européen', color:'Blanc', urgent:false, fiv:false, soon:false, area:'Le Barp',
+  {name:'Blitz', age:'chaton', gender:'♀', species:'Chat européen', color:'Blanc', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
    photos:['ANIMAUX/Blitz/Blitz_1.jpg', 'ANIMAUX/Blitz/Blitz_2.jpg', 'ANIMAUX/Blitz/Blitz_3.jpg'],
    race:'Européen Blanc', desc:"BLITZ – Femelle, 3 à 4 mois.<Br><Br>Je suis une petite minette pleine de vie et très proche de l'humain. J'adore venir chercher des câlins, être au cœur de l'action et partager de tendres moments avec ceux qui prennent soin de moi.<Br><Br>Malgré mon jeune âge, je sais déjà me faire respecter des plus grands ! J'ai un petit caractère bien affirmé, tout en restant douce et affectueuse.<Br><Br>Très joueuse, je suis toujours partante pour une partie de chasse à la balle ou à la souris en peluche. Et dès que les jeux sont terminés, mon moteur se met en marche : je suis une véritable machine à ronrons ! 🥰<Br><Br>Avec ma personnalité pétillante, câline et pleine de confiance, je n'attends plus que ma famille pour la vie.<Br><Br>🏡 Blitz est prête à l'adoption.<Br><Br>"},
-  {name:'Bayley', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, area:'Le Barp',
+  {name:'Bayley', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
    photos:['ANIMAUX/Bayley/Bayley_1.jpg', 'ANIMAUX/Bayley/Bayley_2.jpg', 'ANIMAUX/Bayley/Bayley_3.jpg'],
    race:'Européen Noir', desc:"Bayley est une adorable chatonne qui se révèle être une véritable machine à ronron.<Br><Br>Elle aime venir chercher les caresses mais n'ose pas encore venir se poser sur les humains<Br><Br>Très joueuse elle adore chasser ses souris en peluche et explorer toutes les pièces de la maison.<Br><Br>"}
 ];
@@ -1252,6 +1285,7 @@ function catCard(c){
       <div class="badge-group">
         ${c.urgent ? `<span class="cat-badge urgent">🔴 Urgence</span>` : ''}
         ${c.soon ? `<span class="cat-badge soon">🕓 Bientôt à l'adoption</span>` : ''}
+        ${c.reserved ? `<span class="cat-badge reserved">🤝 Réservé</span>` : ''}
       </div>
     </div>
     <div class="cat-info">
@@ -1439,6 +1473,7 @@ function openModal(name){
           ${c.fiv ? '<span class="tag">FIV/FeLV+</span>' : ''}
           ${c.urgent ? '<span class="tag">🔴 Urgence</span>' : ''}
           ${c.soon ? '<span class="tag">🕓 Bientôt à l\'adoption</span>' : ''}
+          ${c.reserved ? '<span class="tag">🤝 Réservé</span>' : ''}
         </div>
         <p style="color:var(--muted);line-height:1.8;font-weight:600;margin-top:14px">${c.desc}</p>
         <div class="modal-contact">
@@ -1634,11 +1669,11 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHours();
   renderHelp();
   setTimeout(() => {
-    animateCounter('counter-animaux', cats.filter(c => !c.soon).length);
+    animateCounter('counter-animaux', cats.filter(c => !c.soon && !c.reserved).length);
     animateCounter('counter-adoptes', cats.filter(c => c.soon).length);
     animateCounter('counter-benevole', 100, '%');
     animateCounter('counter-sterilises', 4);
-    animateCounter('counter-adoptes-total', 6);
+    animateCounter('counter-adoptes-total', 7);
     animateCounter('counter-famille', 12);
   }, 600);
 });
