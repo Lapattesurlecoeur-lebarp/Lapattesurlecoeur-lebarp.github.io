@@ -1135,7 +1135,7 @@ footer{padding:16px 0 20px}
    - counter-famille        : "Chats en famille d'accueil" (target: 8)
    ============================================================ */
 const cats = [
-  {name:'Bella', age:'adulte', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
+  {name:'Bella', age:'adulte', gender:'♀', species:'x Siamois', color:'Blanc', urgent:true, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bella/Bella_1.jpg', 'ANIMAUX/Bella/Bella_2.jpg', 'ANIMAUX/Bella/Bella_3.jpg', 'ANIMAUX/Bella/Bella_4.jpg'],
    race:'x Siamois Blanc', desc:"BELLA porte bien son nom ! C'est une vraie beauté !<Br><Br>Calme et sérénité pour cette chatte déjà maman. Ses petits ont été adoptés. Elle est stérilisée, vaccinée et testée FIV/FELV négatif.<Br><Br>Bella est une chatte vive et joueuse mais également très caline qui adore être dans les bras de son humain.<Br><Br>Comme beaucoup de Siamois elle est très bavarde et a différents roucoulements pour se faire comprendre 🥰"},
   {name:'Buzz', age:'chaton', gender:'♂', species:'Chat européen', color:'Tigré Brun et Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
@@ -1753,7 +1753,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounter('counter-adoptes', cats.filter(c => c.soon).length);
     animateCounter('counter-benevole', 100, '%');
     animateCounter('counter-sterilises', 4);
-    animateCounter('counter-adoptes-total', 7);
+    animateCounter('counter-adoptes-total', 9);
     animateCounter('counter-famille', 12);
   }, 600);
 });
