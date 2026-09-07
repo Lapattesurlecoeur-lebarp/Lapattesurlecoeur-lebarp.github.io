@@ -1144,19 +1144,16 @@ const cats = [
    video:'https://www.youtube.com/watch?v=J---aiyznGQ',
    ============================================================ */
    race:'Européen Tigré Brun et Blanc', desc:"BUZZ – Mâle de 5 à 6 mois<Br><Br>Au début, je peux être un peu réservé, mais chaque jour je fais de beaux progrès et j'apprends à faire confiance. Une fois rassuré, j'adore jouer, explorer et partager de tendres moments de câlins.<Br><Br>Je recherche une famille douce et patiente qui me laissera le temps de m'épanouir. En échange, je vous offrirai toute mon affection et de nombreux moments de complicité.<Br><Br>🏡 Buzz est prêt à rejoindre sa famille pour la vie.<Br><Br>"},
-  {name:'Bianca', age:'chaton', gender:'♀', species:'x Siamois', color:'Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
-   photos:['ANIMAUX/Bianca/Bianca_1.jpg', 'ANIMAUX/Bianca/Bianca_2.jpg', 'ANIMAUX/Bianca/Bianca_3.jpg'],
-   race:'x Siamois Blanc', desc:"BIANCA – Femelle de 3 à 4 mois<Br><Br>Je suis une jeune minette douce et réservée. Mon passé m'a appris à être prudente, alors j'ai encore besoin d'un peu de temps pour accorder pleinement ma confiance.<Br><Br>Je suis encore un peu craintive et je n'ai pas encore révélé toute ma personnalité. Mais chaque jour, je fais de petits progrès et je découvre que les humains peuvent aussi être synonymes de douceur, de patience et de sécurité.<Br><Br>Avec une famille calme et bienveillante, je pourrai m'épanouir à mon rythme et laisser apparaître la merveilleuse compagne qui sommeille en moi.<Br><Br>Parce que les plus belles histoires sont souvent celles qui se construisent avec patience, je mérite, moi aussi, une chance de trouver une famille qui m'aimera telle que je suis. ❤️<Br><Br>🏡 Bianca est prête à trouver sa famille pour la vie.<Br><Br>"},
   {name:'Bounty', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bounty/Bounty_1.jpg', 'ANIMAUX/Bounty/Bounty_2.jpg', 'ANIMAUX/Bounty/Bounty_3.jpg'],
    race:'Européen Noir & Blanc', desc:"BOUNTY – Femelle de 3 à 4 mois<Br><Br>Je suis une petite minette curieuse qui aime découvrir le monde qui m'entoure… mais toujours avec une pointe de prudence. J'aime prendre le temps d'observer avant de me lancer.<Br><Br>Discrète de nature, je révèle vite mon côté espiègle dès qu'un jouet apparaît. Les séances de jeu sont un vrai bonheur pour moi ! Et s'il y a une petite gourmandise à la clé, je suis la première à accourir… je suis une vraie gourmande ! 😻<Br><Br>Avec un peu de douceur et de patience, je saurai m'épanouir pleinement et devenir une compagne fidèle et attachante.<Br><Br>🏡 Bounty est prête à rejoindre sa famille pour la vie.<Br><Br>"},
   {name:'Brume', age:'chaton', gender:'♀', species:'Chat européen', color:'Tigré Gris et Blanc', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Brume/Brume_1.jpg', 'ANIMAUX/Brume/Brume_2.jpg', 'ANIMAUX/Brume/Brume_3.jpg'],
    race:'Européen Tigré Gris et Blanc', desc:"BRUME – Femelle, 4 à 5 mois<Br><Br>Je suis encore une petite très réservée. J'observe beaucoup et j'ai besoin de temps pour prendre confiance.<Br><Br>Quand je pense que personne ne me regarde, je me transforme en véritable petite joueuse et je m'amuse avec tout ce qui me tombe sous la patte !<Br><Br>Petit à petit, je fais de grands progrès. Je me laisse caresser et, une fois rassurée, j'apprécie énormément les câlins.<Br><Br>Même si je reste encore un peu fuyante, chaque jour est une nouvelle victoire. Je poursuis mon apprentissage au sein de ma famille d'accueil, où je découvre que les humains peuvent être synonymes de douceur et de sécurité.<Br><Br>💙 Brume n'est pas encore prête à l'adoption. Elle a besoin de continuer à prendre confiance avant de partir rejoindre sa future famille. Nous sommes très fiers des progrès qu'elle réalise chaque jour.<Br><Br>Merci de suivre son évolution et de l'encourager dans cette belle aventure. 🐾<Br><Br>"},
-  {name:'Belette', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
+  {name:'Belette', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Belette/Belette_1.jpg'],
    race:'Européen Noir', desc:""},
-  {name:'Bolide', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
+  {name:'Bolide', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bolide/Bolide_1.jpg', 'ANIMAUX/Bolide/Bolide_2.jpg'],
    race:'Européen Noir', desc:""},
   {name:'Basile', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
@@ -1350,7 +1347,7 @@ function catCard(c){
     <div class="cat-top-badges">
       <span class="cat-badge">${ageLabel(c.age)}</span>
       <div class="badge-group">
-        ${c.urgent ? `<span class="cat-badge urgent">🔴 Urgence</span>` : ''}
+        ${c.urgent ? `<span class="cat-badge urgent">🔴 A la une !</span>` : ''}
         ${c.soon ? `<span class="cat-badge soon">🕓 Bientôt à l'adoption</span>` : ''}
         ${c.reserved ? `<span class="cat-badge reserved">🤝 Réservé</span>` : ''}
       </div>
@@ -1756,8 +1753,8 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounter('counter-adoptes', cats.filter(c => c.soon).length);
     animateCounter('counter-benevole', 100, '%');
     animateCounter('counter-sterilises', 4);
-    animateCounter('counter-adoptes-total', 9);
-    animateCounter('counter-famille', 12);
+    animateCounter('counter-adoptes-total', 10);
+    animateCounter('counter-famille', 11);
   }, 600);
 });
 </script>
