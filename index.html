@@ -1135,7 +1135,7 @@ footer{padding:16px 0 20px}
    - counter-famille        : "Chats en famille d'accueil" (target: 8)
    ============================================================ */
 const cats = [
-  {name:'Bella', age:'adulte', gender:'♀', species:'x Siamois', color:'Blanc', urgent:true, fiv:false, soon:false, reserved:false, area:'Le Barp',
+  {name:'Bella', age:'adulte', gender:'♀', species:'x Siamois', color:'Blanc', urgent:true, fiv:false, soon:false, reserved:true, area:'Le Barp',
    photos:['ANIMAUX/Bella/Bella_1.jpg', 'ANIMAUX/Bella/Bella_2.jpg', 'ANIMAUX/Bella/Bella_3.jpg', 'ANIMAUX/Bella/Bella_4.jpg'],
    race:'x Siamois Blanc', desc:"BELLA porte bien son nom ! C'est une vraie beauté !<Br><Br>Calme et sérénité pour cette chatte déjà maman. Ses petits ont été adoptés. Elle est stérilisée, vaccinée et testée FIV/FELV négatif.<Br><Br>Bella est une chatte vive et joueuse mais également très caline qui adore être dans les bras de son humain.<Br><Br>Comme beaucoup de Siamois elle est très bavarde et a différents roucoulements pour se faire comprendre 🥰"},
   {name:'Buzz', age:'chaton', gender:'♂', species:'Chat européen', color:'Tigré Brun et Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
@@ -1144,7 +1144,7 @@ const cats = [
    video:'https://www.youtube.com/watch?v=J---aiyznGQ',
    ============================================================ */
    race:'Européen Tigré Brun et Blanc', desc:"BUZZ – Mâle de 5 à 6 mois<Br><Br>Au début, je peux être un peu réservé, mais chaque jour je fais de beaux progrès et j'apprends à faire confiance. Une fois rassuré, j'adore jouer, explorer et partager de tendres moments de câlins.<Br><Br>Je recherche une famille douce et patiente qui me laissera le temps de m'épanouir. En échange, je vous offrirai toute mon affection et de nombreux moments de complicité.<Br><Br>🏡 Buzz est prêt à rejoindre sa famille pour la vie.<Br><Br>"},
-  {name:'Bounty', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
+  {name:'Bounty', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
    photos:['ANIMAUX/Bounty/Bounty_1.jpg', 'ANIMAUX/Bounty/Bounty_2.jpg', 'ANIMAUX/Bounty/Bounty_3.jpg'],
    race:'Européen Noir & Blanc', desc:"BOUNTY – Femelle de 3 à 4 mois<Br><Br>Je suis une petite minette curieuse qui aime découvrir le monde qui m'entoure… mais toujours avec une pointe de prudence. J'aime prendre le temps d'observer avant de me lancer.<Br><Br>Discrète de nature, je révèle vite mon côté espiègle dès qu'un jouet apparaît. Les séances de jeu sont un vrai bonheur pour moi ! Et s'il y a une petite gourmandise à la clé, je suis la première à accourir… je suis une vraie gourmande ! 😻<Br><Br>Avec un peu de douceur et de patience, je saurai m'épanouir pleinement et devenir une compagne fidèle et attachante.<Br><Br>🏡 Bounty est prête à rejoindre sa famille pour la vie.<Br><Br>"},
   {name:'Belette', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
@@ -1162,7 +1162,7 @@ const cats = [
   {name:'Bayley', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
    photos:['ANIMAUX/Bayley/Bayley_1.jpg', 'ANIMAUX/Bayley/Bayley_2.jpg', 'ANIMAUX/Bayley/Bayley_3.jpg'],
    race:'Européen Noir', desc:"Bayley est une adorable chatonne qui se révèle être une véritable machine à ronron.<Br><Br>Elle aime venir chercher les caresses mais n'ose pas encore venir se poser sur les humains<Br><Br>Très joueuse elle adore chasser ses souris en peluche et explorer toutes les pièces de la maison.<Br><Br>"},
-  {name:'Baghera', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
+  {name:'Baghera', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
    photos:['ANIMAUX/Baghera/Baghera_1.jpg', 'ANIMAUX/Baghera/Baghera_2.jpg'],
    race:'Européen Noir', desc:"Chatte de petit gabarit, calme, caline et malicieuse.<Br><Br>"},
   {name:'Brume', age:'chaton', gender:'♀', species:'Chat européen', color:'Tigré Gris et Blanc', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
@@ -1193,6 +1193,12 @@ const steps = [
 ];
 
 const news = [
+  {id:'6', tag:'🔴 Appel aux Dons', urgent:true, date:'28 Septembre 2026', title:'Aujourd\'hui nous avons besoin de vous !', excerpt:"Des dépenses de santé imprévues pour nos chatons nous mettent aujourd’hui en grande difficulté.",
+   photo:'NEWS/News_6.jpg',
+   full:"Des dépenses de santé imprévues pour nos chatons nous mettent aujourd’hui en grande difficulté.<Br><Br>Les caisses sont vides… mais leurs soins, eux, ne peuvent pas attendre.<Br><Br>🙏 Même 5 € peuvent nous aider à les soigner et à continuer de les protéger.<Br><Br>🐾 Un don, un partage, un petit geste… pour eux, chaque aide compte.<Br><Br>https://www.helloasso.com/associations/la-patte-sur-le-coeur-le-barp"},
+  {id:'5', tag:'🔴 SOS Familles d\'accueil', urgent:true, date:'24 Septembre 2026', title:'Familles d\'accueil recherchées pour nos chatons', excerpt:"Nous sommes à la recherche d’une ou plusieurs familles d’accueil pour prendre soin de nos petits chatons pendant les vacances de la Toussaint.",
+   photo:'NEWS/News_5.jpg',
+   full:"Nous sommes à la recherche d’une ou plusieurs familles d’accueil pour prendre soin de nos petits chatons pendant les vacances de la Toussaint. L’objectif est de leur offrir un environnement chaleureux, sécurisé et rempli d’attention pendant cette période.<Br><Br>🏡 Accueil temporaire pour la période des vacances de la Toussaint<Br>❤️ Câlins, présence et bons soins indispensables !<Br>🥣Nourriture fournie<Br>✨Litière et matériel également<Br><Br>Si vous êtes disponibles et souhaitez nous aider en accueillant un ou plusieurs de nos petits protégés, n’hésitez pas à nous contacter."},
   {id:'4', tag:'🙏 Remerciements', urgent:false, date:'07 Septembre 2026', title:'🐾 Vous êtes venus nombreux au Forum des Associations ! 🐾', excerpt:"Un grand merci à toutes et à tous pour votre visite, vos échanges et votre enthousiasme ! ❤️",
    photo:'NEWS/News_4.jpg',
    full:"🐾 Vous êtes venus nombreux au Forum des Associations ! 🐾<Br><Br>Un grand merci à toutes et à tous pour votre visite, vos échanges et votre enthousiasme ! ❤️<Br><Br>Vous nous avez demandé quels étaient nos besoins permanents… Les voici 👇<Br>🐱 Litière agglomérante / absorbante<Br>🐱 Croquettes chaton (Purina one ou Royal canin pour nos chatons ayant des problèmes digestifs)<Br>🐱 Émincés chaton et adulte<Br>💊 Compresses (même périmées)<Br>💉 Seringues de toutes tailles (même périmées)<Br>💧 Sérum physiologique<Br>🧴 Produits Sanytol/Javel<Br>🗑️ Petits et moyens sacs-poubelles<Br>🧸 Petits jouets et arbres à chats en bon état<Br>🛏️ Petites couvertures, vieux draps pour couvrir les cages, Serviettes éponge/ aléses<Br><Br>Pour un futur atelier réparation arbres à chats :<Br>🐾 Tissu en fausse fourrure<Br>élastique fil moyen<Br>🪢 Corde épaisse<Br>Cylindre carton epais<Br><Br>Chaque don, petit ou grand, nous est précieux et contribue directement au bien-être de nos petits protégés. ❤️<Br><Br>Merci pour votre générosité et votre soutien ! 🙏🐾"},
@@ -1758,7 +1764,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounter('counter-animaux', cats.filter(c => !c.soon && !c.reserved).length);
     animateCounter('counter-adoptes', cats.filter(c => c.soon).length);
     animateCounter('counter-benevole', 100, '%');
-    animateCounter('counter-sterilises', 4);
+    animateCounter('counter-sterilises', 6);
     animateCounter('counter-adoptes-total', 10);
     animateCounter('counter-famille', 11);
   }, 600);
