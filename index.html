@@ -1135,9 +1135,6 @@ footer{padding:16px 0 20px}
    - counter-famille        : "Chats en famille d'accueil" (target: 8)
    ============================================================ */
 const cats = [
-  {name:'Bella', age:'adulte', gender:'♀', species:'x Siamois', color:'Blanc', urgent:true, fiv:false, soon:false, reserved:true, area:'Le Barp',
-   photos:['ANIMAUX/Bella/Bella_1.jpg', 'ANIMAUX/Bella/Bella_2.jpg', 'ANIMAUX/Bella/Bella_3.jpg', 'ANIMAUX/Bella/Bella_4.jpg'],
-   race:'x Siamois Blanc', desc:"BELLA porte bien son nom ! C'est une vraie beauté !<Br><Br>Calme et sérénité pour cette chatte déjà maman. Ses petits ont été adoptés. Elle est stérilisée, vaccinée et testée FIV/FELV négatif.<Br><Br>Bella est une chatte vive et joueuse mais également très caline qui adore être dans les bras de son humain.<Br><Br>Comme beaucoup de Siamois elle est très bavarde et a différents roucoulements pour se faire comprendre 🥰"},
   {name:'Buzz', age:'chaton', gender:'♂', species:'Chat européen', color:'Tigré Brun et Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Buzz/Buzz_1.jpg', 'ANIMAUX/Buzz/Buzz_2.jpg', 'ANIMAUX/Buzz/Buzz_3.jpg', 'ANIMAUX/Buzz/Buzz_4.jpg'],
 /* ============================================================
@@ -1150,9 +1147,6 @@ const cats = [
   {name:'Bolide', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bolide/Bolide_1.jpg', 'ANIMAUX/Bolide/Bolide_2.jpg', 'ANIMAUX/Bolide/Bolide_3.jpg', 'ANIMAUX/Bolide/Bolide_4.jpg'],
    race:'Européen Noir', desc:"Bolide est un chaton adorable, joueur et particulièrement affectueux.<Br><Br>Véritable petite machine à ronron, il apprécie énormément les moments de tendresse et ne se fait pas prier lorsqu'il s'agit de recevoir des câlins.<Br><Br>Curieux et plein de vie, il aime jouer, explorer et partager de jolis moments avec les humains.<Br><Br>Son caractère doux et câlin en fait un petit compagnon particulièrement attachant.<Br><Br>Il recherche une famille présente, douce et attentionnée, qui saura lui offrir toute l'affection dont il raffole.<Br><Br>Un petit cœur sur pattes qui risque fort de faire chavirer celui de sa future famille !<Br><Br>"},
-  {name:'Basile', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
-   photos:['ANIMAUX/Basile/Basile_1.jpg', 'ANIMAUX/Basile/Basile_2.jpg', 'ANIMAUX/Basile/Basile_3.jpg'],
-   race:'Européen Noir', desc:"Basile a été trappé 1 semaine après son frère Baloo et sa sœur Bagheera début septembre.<Br><Br>Encore un peu réservé dans ses premiers contacts, ce petit bonhomme se révèle dès qu'il se sent en confiance. C'est une véritable boîte à ronrons qui adore les câlins et sait parfaitement profiter des moments de tendresse. Il a ce petit air de pacha, avec des mimiques qui nous font craquer chaque fois !<Br><Br>Joueur, il aime observer ce qui se passe autour de lui… plutôt en mode « laissez venir les choses à moi ». Il apprécie qu'on vienne lui proposer le jeu plutôt que de partir lui-même à l'aventure.<Br><Br>Un petit cœur encore un peu timide, mais avec beaucoup de douceur, de patience et d'affection à offrir."},
   {name:'Brigand', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir & Blanc', urgent:false, fiv:false, soon:false, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Brigand/Brigand_1.jpg', 'ANIMAUX/Brigand/Brigand_2.jpg'],
    race:'Européen Noir & Blanc', desc:"BRIGAND – Mâle de 3 à 4 mois<Br><Br>Brigand est assez timide, mais si vous lui laissez le temps de faire connaissance, il se montre curieux et vient se poser à côté de vous pour vous regarder lire ou regarder vos séries préférées.<Br><Br>Si lui s'autorise à renifler vos mains et pieds, gouter ce qui se trouve dans vos verres, pour l'instant il reste craintif vis à vis des caresses et il lui faudra douceur et patience pour se sentir en confiance.<Br><Br>Il adore grimper partout, joue énormément et adore explorer son environnement pour trouver la meilleure cachette pour une sieste bien méritée.<Br><Br>Ce petit coeur à prendre mérite qu'on lui laisse le temps de s'acclimater pour qu'il puisse s'épanouir pleinement.<Br><Br>"},
@@ -1762,7 +1756,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounter('counter-adoptes', cats.filter(c => c.soon).length);
     animateCounter('counter-benevole', 100, '%');
     animateCounter('counter-sterilises', 6);
-    animateCounter('counter-adoptes-total', 10);
+    animateCounter('counter-adoptes-total', 12);
     animateCounter('counter-famille', 11);
   }, 600);
 });
