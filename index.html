@@ -1147,9 +1147,6 @@ const cats = [
   {name:'Bayley', age:'chaton', gender:'♀', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
    photos:['ANIMAUX/Bayley/Bayley_1.jpg', 'ANIMAUX/Bayley/Bayley_2.jpg', 'ANIMAUX/Bayley/Bayley_3.jpg'],
    race:'Européen Noir', desc:"Bayley est une adorable chatonne qui se révèle être une véritable machine à ronron.<Br><Br>Elle aime venir chercher les caresses mais n'ose pas encore venir se poser sur les humains<Br><Br>Très joueuse elle adore chasser ses souris en peluche et explorer toutes les pièces de la maison.<Br><Br>"},
-  {name:'Baloo', age:'chaton', gender:'♂', species:'Chat européen', color:'Noir', urgent:false, fiv:false, soon:false, reserved:true, area:'Le Barp',
-   photos:['ANIMAUX/Baloo/Baloo_1.jpg', 'ANIMAUX/Baloo/Baloo_2.jpg'],
-   race:'Européen Noir', desc:""},
   {name:'Bahia', age:'chaton', gender:'♀', species:'Chat européen', color:'Roux', urgent:false, fiv:false, soon:true, reserved:false, area:'Le Barp',
    photos:['ANIMAUX/Bahia/Bahia_1.jpg'],
    race:'Européen Roux', desc:"Retrouvée errante, affamée, malade et tellement fragilisée par ce qu'elle a vécu, Bahia revient doucement de loin…<Br><Br>Aujourd'hui, les nouvelles sont encourageantes ! Elle a repris du poids, prend bien son traitement et commence petit à petit à reprendre des forces. Chaque gramme repris, chaque repas avalé, chaque jour qui passe est une petite victoire. ❤️<Br><Br>Le chemin est encore long, mais Bahia s'accroche et nous montre toute sa force et son courage. Après avoir connu la faim, la maladie et l'errance, elle mérite tellement de découvrir enfin la douceur, l'amour et la sécurité.<Br><Br>Allez petite Bahia, continue de te battre… Le meilleur reste à venir. ❤️"},
@@ -1762,7 +1759,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounter('counter-adoptes', cats.filter(c => c.soon).length);
     animateCounter('counter-benevole', 100, '%');
     animateCounter('counter-sterilises', 6);
-    animateCounter('counter-adoptes-total', 14);
+    animateCounter('counter-adoptes-total', 15);
     animateCounter('counter-famille', 8);
   }, 600);
 });
